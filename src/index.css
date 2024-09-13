@@ -4,3 +4,47 @@
   margin: 0;
   padding: 0;
 }
+
+
+/* start style for : ProductList Page */
+.product-list {
+  margin: 20px;
+  padding: 10px;
+}
+
+.product-list h1 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.imgIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 7px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.btn-info:hover {
+  background-color: #79E0EE;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #65C18C;
+}
+
+/* end style for : ProductList Page */
