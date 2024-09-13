@@ -1,7 +1,10 @@
+import Hero from "../components/landing/Hero";
+
+
 const Home = () => {
     return (
         <section>
-            <h1>This is Home</h1>
+            <Hero />
         </section>
     )
 }
