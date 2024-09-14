@@ -131,7 +131,7 @@ const EditProductForm: React.FC<{ id: number, product: Product, categories: Cate
                 {(fields, { add, remove }) => (
                     <>
                         <label>Reviews:</label>
-                        {fields.map((field, index) => (
+                        {fields.map((field) => (
                             <Space key={field.key} align="baseline" style={{ display: 'flex', marginBottom: 8 }}>
                                 {/* Pass the key explicitly, not through {...field} */}
                                 <Form.Item

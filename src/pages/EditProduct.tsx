@@ -1,4 +1,3 @@
-
 import { Spin } from 'antd';
 import { useParams } from 'react-router-dom';
 
@@ -7,17 +6,22 @@ import { useGetCategoriesQuery, useGetProductByIdQuery } from '../redux/api/api'
 
 const EditProduct = () => {
     const { id } = useParams<{ id: string }>();
-    const { data } = useGetProductByIdQuery(Number(id));
-    const { data: categories, isFetching } = useGetCategoriesQuery();
 
+    // Ensure id is defined and converted to a number
+    const productId = id ? Number(id) : undefined;
 
-    if (isFetching) {
-        return <Spin />
+    const { data: product, isFetching: isFetchingProduct } = useGetProductByIdQuery(productId!, { skip: !productId });
+    const { data: categories, isFetching: isFetchingCategories } = useGetCategoriesQuery();
+
+    if (isFetchingProduct || isFetchingCategories || !product || !categories) {
+        return <Spin />;
     }
+
     return (
         <section className='edit-form'>
             <h1>Edit Product Information</h1>
-            <EditProductForm id={id} product={data} categories={categories} />
+            {/* Ensure productId, product, and categories are available before rendering */}
+            <EditProductForm id={productId!} product={product} categories={categories} />
         </section>
     );
 };

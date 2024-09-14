@@ -17,9 +17,9 @@ const Header = () => {
 
     return (
         <section className='header'>
-            <figure>
+            <Link to='/'>
                 <img src="/logo.png" alt="Logo" />
-            </figure>
+            </Link>
 
             <ul className={`menu`}>
                 <li>
@@ -35,9 +35,9 @@ const Header = () => {
                     <Link to='/contact'>Contact Us</Link>
                 </li>
             </ul>
-            <div className='menuIcon' onClick={showDrawer}>
+            <Link to='/' className='menuIcon' onClick={showDrawer}>
                 <img src="/menu.png" alt="" />
-            </div>
+            </Link>
             <Drawer title="Close" onClose={onClose} open={open}>
                 <ul className="drawer-menu">
                     <li>
