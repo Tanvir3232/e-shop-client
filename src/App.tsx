@@ -1,7 +1,7 @@
+import '@smastrom/react-rating/style.css'
 import { Outlet } from 'react-router-dom'
 import './App.css'
 import Header from './components/common/Header'
-
 function App() {
 
   return (
