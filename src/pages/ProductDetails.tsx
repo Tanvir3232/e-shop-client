@@ -1,16 +1,21 @@
 
 import { Rating } from "@smastrom/react-rating";
-import { Flex, Image } from "antd";
+import { Flex, Image, Spin } from "antd";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../redux/api/api";
 const ProductDetails = () => {
     const { id } = useParams()
     const { data, isLoading } = useGetProductByIdQuery(Number(id));
     console.log(data)
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <Spin />
 
     return (
         <section>
+            <Helmet>
+                <title>E-Shop | {data?.title}</title>
+                <meta name="description" content={`This is the ${data?.title}`} />
+            </Helmet>
             <div className="product-content">
                 <Image.PreviewGroup
                     items={data?.images}

@@ -1,6 +1,7 @@
 // src/pages/ProductList.tsx
 import { Table, TableColumnType } from 'antd';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 import { useGetProductsQuery } from '../redux/api/api';
 import { Product } from '../types/product.type';
@@ -32,7 +33,7 @@ const ProductList = () => {
       key: 'actions',
       render: (item) => (
         <div className='action-buttons'>
-          <button className='btn btn-info' title='Edit Product data' onClick={() => navigate(`/products/${item.key}`)}> <img src='/edit.png' className='imgIcon' /> </button>
+          <button className='btn btn-info' title='Edit Product data' onClick={() => navigate(`/products/edit/${item.key}`)}> <img src='/edit.png' className='imgIcon' /> </button>
           <button className='btn btn-primary' title='Product details' onClick={() => navigate(`/products/${item.key}`)}> <img src='/view.png' className='imgIcon' /> </button>
         </div>
       )
@@ -41,6 +42,10 @@ const ProductList = () => {
 
   return (
     <section className='product-list'>
+      <Helmet>
+        <title>E-Shop | Products</title>
+
+      </Helmet>
       <h1>Product List</h1>
       <Table
         loading={isFetching}
